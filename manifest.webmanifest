@@ -1,0 +1,9 @@
+{
+  "name": "Từ điển GIS · WebGIS · GeoAI",
+  "short_name": "Từ điển GIS",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#07110f",
+  "theme_color": "#081512",
+  "lang": "vi"
+}
