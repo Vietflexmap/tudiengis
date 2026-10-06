@@ -1,0 +1,801 @@
+{
+  "topics": [
+    {
+      "id": "foundations",
+      "name": "GIS căn bản",
+      "description": "Bản đồ, đối tượng địa lý, lớp dữ liệu và tư duy không gian."
+    },
+    {
+      "id": "crs",
+      "name": "Tọa độ & CRS",
+      "description": "Datum, ellipsoid, phép chiếu, EPSG và biến đổi tọa độ."
+    },
+    {
+      "id": "formats",
+      "name": "Vector · Raster · Tile",
+      "description": "GeoJSON, GeoTIFF, COG, MVT, PMTiles và tile pyramid."
+    },
+    {
+      "id": "webgis",
+      "name": "WebGIS",
+      "description": "Client, server, API, OGC, cache, CDN và rendering."
+    },
+    {
+      "id": "database",
+      "name": "CSDL không gian",
+      "description": "PostGIS, spatial SQL, index và topology."
+    },
+    {
+      "id": "capture",
+      "name": "Thu thập dữ liệu",
+      "description": "GNSS, RTK, UAV, LiDAR, IoT và Field GIS."
+    },
+    {
+      "id": "analysis",
+      "name": "Phân tích không gian",
+      "description": "Buffer, overlay, network, interpolation và spatial statistics."
+    },
+    {
+      "id": "geoai",
+      "name": "GeoAI",
+      "description": "Machine learning, viễn thám AI, dữ liệu huấn luyện và đánh giá."
+    },
+    {
+      "id": "spatialai",
+      "name": "Spatial AI",
+      "description": "SLAM, 3D, scene graph, digital twin và world model."
+    },
+    {
+      "id": "llm",
+      "name": "LLM cho GIS",
+      "description": "Spatial LLM, GeoRAG, GIS Agent, tool calling và MCP."
+    },
+    {
+      "id": "runtime",
+      "name": "Hạ tầng mới",
+      "description": "WebAssembly, WebGPU, edge, offline-first và local-first."
+    },
+    {
+      "id": "governance",
+      "name": "Chất lượng & quản trị",
+      "description": "Metadata, provenance, QA/QC, privacy và responsible GeoAI."
+    }
+  ],
+  "terms": [
+    {
+      "slug": "gis",
+      "term": "GIS",
+      "vi": "Hệ thống thông tin địa lý",
+      "topic": "foundations",
+      "definition": "Hệ thống dùng để thu thập, quản lý, phân tích và trình bày dữ liệu gắn với vị trí.",
+      "explain": "Nếu bảng tính biết một trường học có 800 học sinh, GIS biết trường đó ở đâu, gần tuyến đường nào, nằm trong phường nào và vùng dân cư xung quanh có bao nhiêu người.",
+      "example": "Thành phố dùng GIS để quản lý đường, cây xanh, thoát nước, quy hoạch và điểm ngập trên cùng một nền dữ liệu.",
+      "warning": "GIS không đồng nghĩa với bản đồ. Bản đồ chỉ là một đầu ra của GIS.",
+      "related": [
+        "WebGIS",
+        "Spatial analysis",
+        "Geodatabase"
+      ]
+    },
+    {
+      "slug": "webgis",
+      "term": "WebGIS",
+      "vi": "GIS trên nền web",
+      "topic": "webgis",
+      "definition": "Hệ thống GIS cung cấp dữ liệu, bản đồ hoặc công cụ phân tích thông qua công nghệ web.",
+      "explain": "Người dùng mở trình duyệt thay vì cài một phần mềm GIS nặng. Dữ liệu có thể được tải từ server, CDN hoặc lưu offline trong thiết bị.",
+      "example": "Một cổng quy hoạch cho phép bật tắt lớp, tìm thửa đất và xem thông tin ngay trên điện thoại.",
+      "warning": "WebGIS không nhất thiết phải luôn online; PWA và dữ liệu local-first có thể chạy offline.",
+      "related": [
+        "Map client",
+        "OGC API",
+        "PMTiles"
+      ]
+    },
+    {
+      "slug": "geoai",
+      "term": "GeoAI",
+      "vi": "Trí tuệ nhân tạo địa không gian",
+      "topic": "geoai",
+      "definition": "AI được thiết kế để học từ dữ liệu có vị trí, hình học, quan hệ không gian hoặc thời gian.",
+      "explain": "GeoAI không chỉ thêm tọa độ vào một bảng dữ liệu. Mô hình phải hiểu rằng các điểm gần nhau, các vùng liền kề hoặc các tuyến kết nối có quan hệ đặc biệt.",
+      "example": "Mô hình dự báo nguy cơ sạt lở từ địa hình, mưa, địa chất và khoảng cách đến sông.",
+      "warning": "GeoAI khác việc dùng chatbot để mô tả bản đồ.",
+      "related": [
+        "Geospatial ML",
+        "Spatial leakage",
+        "Remote sensing AI"
+      ]
+    },
+    {
+      "slug": "spatial-ai",
+      "term": "Spatial AI",
+      "vi": "AI hiểu không gian",
+      "topic": "spatialai",
+      "definition": "Nhóm kỹ thuật giúp máy nhận biết vị trí, hướng, khoảng cách, vật thể và quan hệ trong môi trường.",
+      "explain": "Spatial AI thường kết hợp cảm biến, bản đồ, 3D, computer vision, SLAM và mô hình dự đoán để tác nhân có thể hiểu và hành động trong thế giới thật.",
+      "example": "Robot nhận biết tường, cửa, người, chướng ngại và tìm đường trong tòa nhà.",
+      "warning": "Spatial AI rộng hơn GIS; nó quan tâm mạnh đến nhận thức và hành động.",
+      "related": [
+        "SLAM",
+        "Scene graph",
+        "World model"
+      ]
+    },
+    {
+      "slug": "spatial-llm",
+      "term": "Spatial LLM",
+      "vi": "Mô hình ngôn ngữ lớn có năng lực không gian",
+      "topic": "llm",
+      "definition": "LLM được bổ sung dữ liệu, công cụ hoặc huấn luyện để hiểu và thao tác với quan hệ không gian.",
+      "explain": "Thay vì tự đoán bằng văn bản, Spatial LLM tốt nên gọi geocoder, spatial SQL, routing hoặc phép toán hình học để kiểm chứng câu trả lời.",
+      "example": "Hỏi “các bệnh viện nào nằm trong 10 phút lái xe từ vùng ngập?” và hệ thống tự gọi routing + spatial query.",
+      "warning": "LLM thông thường có thể nói rất thuyết phục nhưng vẫn sai về khoảng cách hoặc quan hệ hình học.",
+      "related": [
+        "GeoRAG",
+        "GIS Agent",
+        "Tool calling"
+      ]
+    },
+    {
+      "slug": "georag",
+      "term": "GeoRAG",
+      "vi": "RAG cho dữ liệu địa lý",
+      "topic": "llm",
+      "definition": "Cách cho LLM truy xuất dữ liệu có vị trí trước khi tạo câu trả lời.",
+      "explain": "Ngoài tìm văn bản theo ngữ nghĩa, GeoRAG có thể lọc theo bbox, polygon, khoảng cách, thời gian, lớp bản đồ hoặc topology.",
+      "example": "LLM tìm đúng quy hoạch trong khu vực người dùng hỏi rồi mới giải thích.",
+      "warning": "GeoRAG không nên chỉ là vector search trên mô tả text.",
+      "related": [
+        "RAG",
+        "Spatial query",
+        "Spatial LLM"
+      ]
+    },
+    {
+      "slug": "crs",
+      "term": "CRS",
+      "vi": "Hệ quy chiếu tọa độ",
+      "topic": "crs",
+      "definition": "Quy tắc cho biết các con số tọa độ liên hệ với vị trí thật trên Trái Đất như thế nào.",
+      "explain": "Hai lớp cùng có cặp số 10, 106 nhưng nếu CRS khác nhau thì ý nghĩa không gian có thể hoàn toàn khác.",
+      "example": "Một lớp GPS dùng EPSG:4326, còn bản đồ web thường render theo Web Mercator.",
+      "warning": "CRS không chỉ là đơn vị mét hay độ.",
+      "related": [
+        "Datum",
+        "Projection",
+        "EPSG"
+      ]
+    },
+    {
+      "slug": "datum",
+      "term": "Datum",
+      "vi": "Mốc trắc địa",
+      "topic": "crs",
+      "definition": "Khung tham chiếu xác định cách mô hình toán học của Trái Đất được đặt vào thế giới thật.",
+      "explain": "Datum cung cấp nền tảng để tọa độ có ý nghĩa địa lý nhất quán.",
+      "example": "Dữ liệu VN-2000 và WGS84 có thể cần phép biến đổi phù hợp khi chồng lớp chính xác.",
+      "warning": "Datum khác phép chiếu.",
+      "related": [
+        "Ellipsoid",
+        "CRS",
+        "Transformation"
+      ]
+    },
+    {
+      "slug": "epsg",
+      "term": "EPSG",
+      "vi": "Mã định danh hệ tọa độ",
+      "topic": "crs",
+      "definition": "Hệ mã phổ biến để định danh CRS và phép biến đổi tọa độ.",
+      "explain": "Mã EPSG giúp phần mềm trao đổi chính xác về hệ tọa độ mà không cần mô tả dài.",
+      "example": "EPSG:4326 thường dùng cho kinh độ/vĩ độ WGS84.",
+      "warning": "Không nên đo khoảng cách mét trực tiếp trên CRS địa lý chỉ vì có mã EPSG.",
+      "related": [
+        "CRS",
+        "WKT",
+        "EPSG:4326"
+      ]
+    },
+    {
+      "slug": "vector",
+      "term": "Vector",
+      "vi": "Dữ liệu vector",
+      "topic": "formats",
+      "definition": "Mô hình dữ liệu biểu diễn đối tượng bằng điểm, đường và vùng.",
+      "explain": "Vector phù hợp với đối tượng có biên hoặc cấu trúc rõ như cột điện, đường giao thông, thửa đất.",
+      "example": "Thửa đất là polygon; tuyến xe buýt là line; trạm quan trắc là point.",
+      "warning": "Vector khác raster dạng lưới ô.",
+      "related": [
+        "Point",
+        "LineString",
+        "Polygon"
+      ]
+    },
+    {
+      "slug": "raster",
+      "term": "Raster",
+      "vi": "Dữ liệu raster",
+      "topic": "formats",
+      "definition": "Mô hình dữ liệu dạng lưới ô, mỗi ô mang một hoặc nhiều giá trị.",
+      "explain": "Raster phù hợp với ảnh, bề mặt liên tục và dữ liệu quan sát theo pixel.",
+      "example": "Ảnh vệ tinh, DEM và bản đồ nhiệt độ thường là raster.",
+      "warning": "Tăng zoom không làm xuất hiện chi tiết nếu độ phân giải gốc thấp.",
+      "related": [
+        "Pixel",
+        "GeoTIFF",
+        "COG"
+      ]
+    },
+    {
+      "slug": "geojson",
+      "term": "GeoJSON",
+      "vi": "Định dạng vector dựa trên JSON",
+      "topic": "formats",
+      "definition": "Định dạng văn bản phổ biến để trao đổi geometry và thuộc tính trên web.",
+      "explain": "GeoJSON dễ đọc, dễ debug và được nhiều thư viện web hỗ trợ trực tiếp.",
+      "example": "Một API trả ranh xã và thuộc tính dân số dưới dạng FeatureCollection.",
+      "warning": "GeoJSON rất tiện nhưng không tối ưu cho bộ dữ liệu cực lớn.",
+      "related": [
+        "JSON",
+        "FeatureCollection",
+        "Vector"
+      ]
+    },
+    {
+      "slug": "cog",
+      "term": "COG",
+      "vi": "Cloud Optimized GeoTIFF",
+      "topic": "formats",
+      "definition": "GeoTIFF được tổ chức để có thể đọc từng phần cần thiết qua HTTP Range.",
+      "explain": "Ứng dụng không phải tải toàn bộ file raster lớn; nó chỉ đọc block tương ứng với vùng và mức chi tiết đang xem.",
+      "example": "WebGIS đọc một phần ảnh vệ tinh hàng GB trực tiếp từ object storage.",
+      "warning": "COG dành cho raster; PMTiles thường dùng để đóng gói tile.",
+      "related": [
+        "GeoTIFF",
+        "HTTP Range",
+        "Raster"
+      ]
+    },
+    {
+      "slug": "mvt",
+      "term": "MVT",
+      "vi": "Mapbox Vector Tile",
+      "topic": "formats",
+      "definition": "Định dạng vector tile nhị phân dùng để truyền bản đồ theo ô và mức zoom.",
+      "explain": "Server hoặc pipeline chia dữ liệu vector thành tile nhỏ để client render nhanh.",
+      "example": "Bản đồ đường phố chỉ tải các tile đang nằm trong viewport.",
+      "warning": "MVT không phải file nguồn đầy đủ theo kiểu GeoPackage.",
+      "related": [
+        "Vector tile",
+        "Tile pyramid",
+        "MapLibre"
+      ]
+    },
+    {
+      "slug": "pmtiles",
+      "term": "PMTiles",
+      "vi": "Kho tile trong một tệp",
+      "topic": "formats",
+      "definition": "Định dạng đóng gói cả tile pyramid vào một file có thể đọc ngẫu nhiên bằng HTTP Range.",
+      "explain": "PMTiles cho phép host bản đồ tile trên CDN/object storage mà không cần tile server riêng trong nhiều tình huống.",
+      "example": "Một file .pmtiles chứa toàn bộ basemap và MapLibre đọc trực tiếp từ web.",
+      "warning": "PMTiles là container tile; nó không thay thế mọi loại geodatabase.",
+      "related": [
+        "MVT",
+        "HTTP Range",
+        "CDN"
+      ]
+    },
+    {
+      "slug": "tile-pyramid",
+      "term": "Tile pyramid",
+      "vi": "Kim tự tháp tile",
+      "topic": "formats",
+      "definition": "Cấu trúc chia bản đồ thành nhiều ô ở nhiều mức zoom.",
+      "explain": "Zoom càng cao thì số tile càng nhiều và mỗi tile mô tả vùng nhỏ hơn.",
+      "example": "Basemap web tải vài tile cho đúng viewport thay vì tải cả quốc gia.",
+      "warning": "Tile pyramid là chiến lược phân phối dữ liệu, không phải CRS.",
+      "related": [
+        "XYZ",
+        "MVT",
+        "Overzoom"
+      ]
+    },
+    {
+      "slug": "maplibre",
+      "term": "MapLibre GL JS",
+      "vi": "Thư viện bản đồ web WebGL mã nguồn mở",
+      "topic": "webgis",
+      "definition": "Thư viện JavaScript để render bản đồ tương tác trong trình duyệt bằng GPU.",
+      "explain": "MapLibre đọc style, source raster/vector, GeoJSON và nhiều plugin để dựng WebGIS hiện đại.",
+      "example": "Hiển thị PMTiles, nhãn, extrusion 3D và lớp dữ liệu động.",
+      "warning": "MapLibre là client renderer, không phải map server.",
+      "related": [
+        "WebGL",
+        "MVT",
+        "PMTiles"
+      ]
+    },
+    {
+      "slug": "ogc-api",
+      "term": "OGC API",
+      "vi": "Nhóm API chuẩn mở địa không gian",
+      "topic": "webgis",
+      "definition": "Các tiêu chuẩn web hiện đại của OGC cho feature, tile, coverage, process và các tài nguyên địa lý khác.",
+      "explain": "OGC API dùng cách tiếp cận REST/HTTP hiện đại hơn nhiều chuẩn dịch vụ cũ.",
+      "example": "Client truy vấn feature theo bbox và phân trang qua OGC API Features.",
+      "warning": "OGC API không phải một sản phẩm phần mềm cụ thể.",
+      "related": [
+        "OGC",
+        "WMS",
+        "WFS"
+      ]
+    },
+    {
+      "slug": "wms",
+      "term": "WMS",
+      "vi": "Web Map Service",
+      "topic": "webgis",
+      "definition": "Dịch vụ trả về ảnh bản đồ đã được server render.",
+      "explain": "Client gửi bbox, kích thước ảnh và layer; server trả PNG/JPEG.",
+      "example": "Một cổng WebGIS hiển thị lớp quy hoạch từ GeoServer bằng WMS.",
+      "warning": "WMS trả ảnh, không phải feature gốc.",
+      "related": [
+        "WFS",
+        "GeoServer",
+        "OGC"
+      ]
+    },
+    {
+      "slug": "wfs",
+      "term": "WFS",
+      "vi": "Web Feature Service",
+      "topic": "webgis",
+      "definition": "Dịch vụ cho phép truy cập đối tượng vector và thuộc tính.",
+      "explain": "WFS thích hợp khi client cần feature thật để truy vấn hoặc chỉnh sửa thay vì chỉ xem ảnh.",
+      "example": "Tải các thửa đất trong bbox về client.",
+      "warning": "Với dữ liệu rất lớn, vector tile có thể phù hợp hơn.",
+      "related": [
+        "WMS",
+        "Feature",
+        "OGC API"
+      ]
+    },
+    {
+      "slug": "postgis",
+      "term": "PostGIS",
+      "vi": "Mở rộng GIS cho PostgreSQL",
+      "topic": "database",
+      "definition": "Bộ mở rộng thêm kiểu geometry/geography, spatial index và hàng trăm hàm không gian cho PostgreSQL.",
+      "explain": "PostGIS biến cơ sở dữ liệu quan hệ thành nền tảng mạnh cho truy vấn địa lý.",
+      "example": "Tìm tất cả trường học nằm trong vùng ngập bằng ST_Intersects.",
+      "warning": "PostGIS là backend dữ liệu, không phải phần mềm desktop GIS.",
+      "related": [
+        "PostgreSQL",
+        "Spatial SQL",
+        "GiST"
+      ]
+    },
+    {
+      "slug": "spatial-index",
+      "term": "Spatial index",
+      "vi": "Chỉ mục không gian",
+      "topic": "database",
+      "definition": "Cấu trúc giúp tìm nhanh đối tượng theo vị trí hoặc vùng bao.",
+      "explain": "Thay vì kiểm tra hàng triệu hình học, database lọc nhanh ứng viên gần khu vực truy vấn rồi mới tính hình học chính xác.",
+      "example": "Tăng tốc truy vấn bbox hoặc giao cắt trong PostGIS.",
+      "warning": "Index không sửa được geometry sai.",
+      "related": [
+        "R-tree",
+        "GiST",
+        "Bounding box"
+      ]
+    },
+    {
+      "slug": "topology",
+      "term": "Topology",
+      "vi": "Tô pô không gian",
+      "topic": "database",
+      "definition": "Mô hình biểu diễn quan hệ kết nối, tiếp giáp và dùng chung biên giữa các đối tượng.",
+      "explain": "Topology quan tâm cấu trúc quan hệ, không chỉ hình dạng từng polygon riêng lẻ.",
+      "example": "Hai thửa đất có thể dùng chung một cạnh thay vì lưu hai biên lệch nhau.",
+      "warning": "Topology khác topography.",
+      "related": [
+        "Adjacency",
+        "Connectivity",
+        "Network"
+      ]
+    },
+    {
+      "slug": "gnss",
+      "term": "GNSS",
+      "vi": "Hệ thống vệ tinh định vị toàn cầu",
+      "topic": "capture",
+      "definition": "Tên chung cho các hệ thống định vị vệ tinh như GPS, Galileo, BeiDou và GLONASS.",
+      "explain": "Thiết bị dùng tín hiệu từ nhiều vệ tinh để ước lượng vị trí.",
+      "example": "Field GIS ghi tọa độ điểm khảo sát từ smartphone hoặc máy GNSS.",
+      "warning": "GNSS không đồng nghĩa riêng với GPS.",
+      "related": [
+        "GPS",
+        "RTK",
+        "Positioning"
+      ]
+    },
+    {
+      "slug": "rtk",
+      "term": "RTK",
+      "vi": "Định vị động thời gian thực",
+      "topic": "capture",
+      "definition": "Kỹ thuật GNSS sử dụng dữ liệu hiệu chỉnh để đạt độ chính xác cao, thường đến centimet.",
+      "explain": "RTK giảm nhiều sai số chung giữa rover và nguồn hiệu chỉnh.",
+      "example": "Đo tim đường, mốc công trình hoặc điểm địa chính ngoài hiện trường.",
+      "warning": "RTK vẫn phụ thuộc môi trường quan sát vệ tinh và cấu hình hệ thống.",
+      "related": [
+        "GNSS",
+        "Base station",
+        "NTRIP"
+      ]
+    },
+    {
+      "slug": "lidar",
+      "term": "LiDAR",
+      "vi": "Đo khoảng cách bằng laser",
+      "topic": "capture",
+      "definition": "Công nghệ phát tia laser và đo phản hồi để tạo dữ liệu 3D rất dày.",
+      "explain": "LiDAR có thể gắn trên máy bay, xe, tripod, robot hoặc điện thoại.",
+      "example": "Quét địa hình để tạo DEM hoặc point cloud công trình.",
+      "warning": "LiDAR không phải camera RGB.",
+      "related": [
+        "Point cloud",
+        "DEM",
+        "3D"
+      ]
+    },
+    {
+      "slug": "field-gis",
+      "term": "Field GIS",
+      "vi": "GIS thực địa",
+      "topic": "capture",
+      "definition": "Ứng dụng GIS cho thu thập, kiểm tra và chỉnh sửa dữ liệu ngoài hiện trường.",
+      "explain": "Field GIS thường kết hợp bản đồ offline, form, ảnh, GNSS, QA/QC và đồng bộ.",
+      "example": "Nhân viên kiểm kê cây xanh ghi vị trí, loài cây, ảnh và tình trạng ngay tại hiện trường.",
+      "warning": "Một app thu form có tọa độ chưa chắc là Field GIS hoàn chỉnh.",
+      "related": [
+        "Offline-first",
+        "GNSS",
+        "Sync"
+      ]
+    },
+    {
+      "slug": "buffer",
+      "term": "Buffer",
+      "vi": "Vùng đệm",
+      "topic": "analysis",
+      "definition": "Phép toán tạo vùng ở một khoảng cách xác định quanh geometry.",
+      "explain": "Buffer biến câu hỏi “gần bao nhiêu?” thành một vùng để tiếp tục overlay hoặc truy vấn.",
+      "example": "Tạo vùng 500 m quanh trường học để thống kê dân số lân cận.",
+      "warning": "Khoảng cách buffer phụ thuộc CRS và phương pháp đo.",
+      "related": [
+        "Distance",
+        "Overlay",
+        "CRS"
+      ]
+    },
+    {
+      "slug": "overlay",
+      "term": "Overlay",
+      "vi": "Chồng lớp",
+      "topic": "analysis",
+      "definition": "Nhóm phép toán kết hợp hình học của nhiều lớp để tạo ra quan hệ hoặc geometry mới.",
+      "explain": "Overlay là một trong các primitive nền tảng của GIS vector.",
+      "example": "Giao vùng ngập với ranh khu dân cư để tìm nơi bị ảnh hưởng.",
+      "warning": "Overlay hình học khác việc chỉ bật hai layer cùng lúc.",
+      "related": [
+        "Intersection",
+        "Union",
+        "Clip"
+      ]
+    },
+    {
+      "slug": "spatial-join",
+      "term": "Spatial join",
+      "vi": "Ghép theo quan hệ không gian",
+      "topic": "analysis",
+      "definition": "Ghép thuộc tính giữa hai bảng dựa trên quan hệ vị trí thay vì khóa ID.",
+      "explain": "Mỗi điểm nhận thêm thuộc tính từ polygon chứa nó hoặc từ đối tượng gần nhất.",
+      "example": "Gắn tên phường cho từng điểm sự cố dựa trên vị trí.",
+      "warning": "Spatial join không phải join SQL thông thường theo mã.",
+      "related": [
+        "Contains",
+        "Within",
+        "Nearest"
+      ]
+    },
+    {
+      "slug": "network-analysis",
+      "term": "Network analysis",
+      "vi": "Phân tích mạng",
+      "topic": "analysis",
+      "definition": "Phân tích đường đi, kết nối và chi phí trên mạng đường hoặc mạng lưới.",
+      "explain": "Mạng GIS có node, edge, hướng đi, restriction và cost.",
+      "example": "Tìm tuyến cứu hộ nhanh nhất có tính đường cấm và thời gian di chuyển.",
+      "warning": "Khoảng cách Euclid không thay thế routing trên mạng.",
+      "related": [
+        "Routing",
+        "Graph",
+        "Isochrone"
+      ]
+    },
+    {
+      "slug": "spatial-autocorrelation",
+      "term": "Spatial autocorrelation",
+      "vi": "Tự tương quan không gian",
+      "topic": "analysis",
+      "definition": "Mức độ các giá trị ở vị trí gần nhau có xu hướng giống hoặc khác nhau.",
+      "explain": "Dữ liệu địa lý thường không độc lập hoàn toàn; vị trí gần nhau có thể chịu cùng tác động.",
+      "example": "Moran's I đánh giá sự tụ cụm của một biến theo không gian.",
+      "warning": "Bỏ qua phụ thuộc không gian có thể làm mô hình đánh giá quá lạc quan.",
+      "related": [
+        "Moran's I",
+        "Spatial statistics",
+        "GeoAI"
+      ]
+    },
+    {
+      "slug": "spatial-leakage",
+      "term": "Spatial leakage",
+      "vi": "Rò rỉ không gian",
+      "topic": "geoai",
+      "definition": "Hiện tượng train và test có liên hệ không gian quá gần khiến đánh giá mô hình cao giả tạo.",
+      "explain": "Nếu pixel cạnh nhau của cùng một khu vực bị chia ngẫu nhiên sang cả train và test, mô hình có thể chỉ ghi nhớ đặc trưng địa phương.",
+      "example": "Chia dữ liệu ảnh vệ tinh theo block/khu vực để đánh giá khả năng tổng quát hóa.",
+      "warning": "Random split không phải lúc nào cũng hợp lệ cho GeoAI.",
+      "related": [
+        "GeoAI",
+        "Cross-validation",
+        "Spatial autocorrelation"
+      ]
+    },
+    {
+      "slug": "semantic-segmentation",
+      "term": "Semantic segmentation",
+      "vi": "Phân đoạn ngữ nghĩa",
+      "topic": "geoai",
+      "definition": "Bài toán AI gán nhãn cho từng pixel hoặc ô ảnh.",
+      "explain": "Kết quả là một mặt nạ phân lớp phủ toàn ảnh.",
+      "example": "Tách nước, đường, mái nhà và cây xanh từ ảnh vệ tinh.",
+      "warning": "Khác object detection vốn thường trả hộp hoặc instance.",
+      "related": [
+        "Remote sensing",
+        "Mask",
+        "Computer vision"
+      ]
+    },
+    {
+      "slug": "change-detection",
+      "term": "Change detection",
+      "vi": "Phát hiện biến động",
+      "topic": "geoai",
+      "definition": "Phân tích nhiều thời điểm để nhận biết nơi nào đã thay đổi.",
+      "explain": "AI có thể học khác biệt có ý nghĩa thay vì chỉ trừ hai ảnh.",
+      "example": "Phát hiện xây dựng mới, mất rừng hoặc thay đổi bờ sông.",
+      "warning": "Thay đổi ánh sáng, mùa hoặc lệch đăng ký ảnh có thể tạo false positive.",
+      "related": [
+        "Time series",
+        "Remote sensing",
+        "GeoAI"
+      ]
+    },
+    {
+      "slug": "slam",
+      "term": "SLAM",
+      "vi": "Định vị và lập bản đồ đồng thời",
+      "topic": "spatialai",
+      "definition": "Kỹ thuật giúp tác nhân vừa ước lượng vị trí của mình vừa xây dựng bản đồ môi trường.",
+      "explain": "SLAM là nền tảng quan trọng cho robot và thiết bị tự hành khi môi trường chưa có bản đồ chính xác.",
+      "example": "Robot dùng camera/LiDAR để đi trong kho và đồng thời dựng bản đồ.",
+      "warning": "SLAM không phải chỉ là GPS trong nhà.",
+      "related": [
+        "Localization",
+        "Mapping",
+        "Loop closure"
+      ]
+    },
+    {
+      "slug": "scene-graph",
+      "term": "Scene graph",
+      "vi": "Đồ thị cảnh",
+      "topic": "spatialai",
+      "definition": "Biểu diễn vật thể và quan hệ giữa chúng bằng node và edge.",
+      "explain": "Scene graph giúp máy chuyển từ pixel/point cloud sang tri thức có cấu trúc.",
+      "example": "“Cửa nằm trên tường”, “xe ở trước nhà”, “người đứng cạnh bàn”.",
+      "warning": "Scene graph không phải chỉ là cây layer đồ họa.",
+      "related": [
+        "Spatial relation",
+        "Graph",
+        "3D"
+      ]
+    },
+    {
+      "slug": "digital-twin",
+      "term": "Digital twin",
+      "vi": "Bản sao số",
+      "topic": "spatialai",
+      "definition": "Mô hình số liên kết với một tài sản hoặc hệ thống thật và được cập nhật bằng dữ liệu.",
+      "explain": "Digital twin thường kết hợp GIS/BIM/IoT/mô phỏng để theo dõi trạng thái và thử kịch bản.",
+      "example": "Mô hình nhà máy nhận dữ liệu cảm biến trực tiếp và mô phỏng sự cố.",
+      "warning": "Một mô hình 3D tĩnh chưa chắc là digital twin.",
+      "related": [
+        "BIM",
+        "IoT",
+        "Simulation"
+      ]
+    },
+    {
+      "slug": "world-model",
+      "term": "World model",
+      "vi": "Mô hình thế giới",
+      "topic": "spatialai",
+      "definition": "Mô hình học cách môi trường thay đổi để dự đoán trạng thái tương lai và hỗ trợ hành động.",
+      "explain": "World model không chỉ biết “đang ở đâu” mà còn dự đoán “nếu làm A thì trạng thái sau đó sẽ ra sao”.",
+      "example": "Robot dự đoán chuyển động của vật thể trước khi chọn đường đi.",
+      "warning": "World model không đồng nghĩa với GIS database.",
+      "related": [
+        "Embodied AI",
+        "Prediction",
+        "Simulation"
+      ]
+    },
+    {
+      "slug": "gis-agent",
+      "term": "GIS Agent",
+      "vi": "Tác nhân AI cho GIS",
+      "topic": "llm",
+      "definition": "Hệ thống dùng mô hình AI để lập kế hoạch, gọi công cụ GIS, đọc kết quả và hoàn thành nhiệm vụ nhiều bước.",
+      "explain": "Agent tốt không tự bịa tọa độ hay geometry; nó gọi đúng tool và kiểm tra output.",
+      "example": "Yêu cầu “tìm vùng phù hợp xây trạm” được tách thành buffer, exclusion, overlay, scoring và export.",
+      "warning": "Agent khác chatbot chỉ trả văn bản.",
+      "related": [
+        "Tool calling",
+        "MCP",
+        "Spatial LLM"
+      ]
+    },
+    {
+      "slug": "mcp",
+      "term": "MCP",
+      "vi": "Model Context Protocol",
+      "topic": "llm",
+      "definition": "Giao thức chuẩn hóa cách mô hình AI kết nối công cụ và nguồn dữ liệu.",
+      "explain": "Trong GIS, MCP có thể bọc các năng lực như data.convert(), spatial.buffer(), crs.transform() hay map.addLayer() thành tool có schema rõ.",
+      "example": "Một Spatial LLM gọi server MCP để chạy phép clip thật thay vì mô tả cách làm.",
+      "warning": "MCP là giao thức kết nối, không phải mô hình AI và cũng không tự xử lý GIS.",
+      "related": [
+        "GIS Agent",
+        "Tool calling",
+        "API"
+      ]
+    },
+    {
+      "slug": "tool-calling",
+      "term": "Tool calling",
+      "vi": "Gọi công cụ",
+      "topic": "llm",
+      "definition": "Khả năng để mô hình AI yêu cầu một hàm bên ngoài thực hiện tác vụ xác định.",
+      "explain": "Tool calling biến LLM từ bộ sinh văn bản thành bộ điều phối có thể dùng geocoder, database, GIS engine và API.",
+      "example": "LLM gọi geocoder để lấy tọa độ thay vì đoán từ trí nhớ.",
+      "warning": "Kết quả vẫn cần kiểm tra quyền, schema và lỗi công cụ.",
+      "related": [
+        "Function calling",
+        "GIS Agent",
+        "MCP"
+      ]
+    },
+    {
+      "slug": "webassembly",
+      "term": "WebAssembly",
+      "vi": "WASM",
+      "topic": "runtime",
+      "definition": "Định dạng thực thi hiệu năng cao trong trình duyệt cho mã được biên dịch từ nhiều ngôn ngữ.",
+      "explain": "WASM đưa nhiều thuật toán GIS vốn chạy desktop/server xuống browser.",
+      "example": "Chạy reprojection, đọc GeoTIFF hoặc xử lý geometry bằng Rust/C++ ngay trên web.",
+      "warning": "WASM chủ yếu giải bài toán CPU; WebGPU nhắm mạnh vào GPU.",
+      "related": [
+        "Browser GIS",
+        "Rust",
+        "WebGPU"
+      ]
+    },
+    {
+      "slug": "webgpu",
+      "term": "WebGPU",
+      "vi": "API GPU hiện đại cho web",
+      "topic": "runtime",
+      "definition": "API cho phép trình duyệt dùng GPU để render và tính toán với mức kiểm soát cao.",
+      "explain": "WebGPU mở đường cho GIS tính toán lớn, point cloud, raster processing và AI inference trực tiếp trên thiết bị.",
+      "example": "Tính hillshade hoặc chạy kernel trên raster lớn trong browser.",
+      "warning": "Đưa code CPU sang WebGPU không tự động làm nó nhanh.",
+      "related": [
+        "GPU",
+        "WebAssembly",
+        "Compute shader"
+      ]
+    },
+    {
+      "slug": "service-worker",
+      "term": "Service Worker",
+      "vi": "Tiến trình nền của web app",
+      "topic": "runtime",
+      "definition": "Thành phần trình duyệt có thể chặn request, cache tài nguyên và hỗ trợ PWA/offline.",
+      "explain": "Service Worker giúp WebGIS mở giao diện và dữ liệu đã cache khi mất mạng.",
+      "example": "Field app lưu shell, style và tile cần thiết để tiếp tục làm việc offline.",
+      "warning": "Service Worker không phải Web Worker chuyên tính toán.",
+      "related": [
+        "PWA",
+        "Offline-first",
+        "Cache"
+      ]
+    },
+    {
+      "slug": "metadata",
+      "term": "Metadata",
+      "vi": "Siêu dữ liệu",
+      "topic": "governance",
+      "definition": "Dữ liệu mô tả dữ liệu: nguồn, thời gian, CRS, độ phân giải, giấy phép, chất lượng và lịch sử xử lý.",
+      "explain": "Metadata giúp người khác biết một layer có thể dùng đúng cho bài toán nào.",
+      "example": "Catalogue ghi lớp được đo năm nào, CRS gì và nguồn nào.",
+      "warning": "Tên file không phải metadata đầy đủ.",
+      "related": [
+        "Provenance",
+        "Data catalog",
+        "CRS"
+      ]
+    },
+    {
+      "slug": "provenance",
+      "term": "Data provenance",
+      "vi": "Nguồn gốc dữ liệu",
+      "topic": "governance",
+      "definition": "Thông tin cho biết dữ liệu đến từ đâu và đã trải qua những bước xử lý nào.",
+      "explain": "Provenance rất quan trọng khi sản phẩm GIS được tạo bởi nhiều pipeline hoặc AI.",
+      "example": "Một bản đồ dự báo ghi rõ ảnh đầu vào, model version, thời gian chạy và thuật toán hậu xử lý.",
+      "warning": "Provenance khác ownership.",
+      "related": [
+        "Lineage",
+        "Metadata",
+        "Reproducibility"
+      ]
+    },
+    {
+      "slug": "qaqc",
+      "term": "QA/QC",
+      "vi": "Đảm bảo và kiểm soát chất lượng",
+      "topic": "governance",
+      "definition": "Quy trình phòng ngừa, phát hiện và xử lý lỗi trong dữ liệu hoặc sản phẩm GIS.",
+      "explain": "QA tập trung vào quy trình đúng; QC tập trung vào kiểm tra sản phẩm đầu ra.",
+      "example": "Kiểm tra polygon tự cắt, thuộc tính thiếu, CRS sai và điểm nằm ngoài phạm vi.",
+      "warning": "Một bản đồ nhìn đẹp chưa nói lên dữ liệu đúng.",
+      "related": [
+        "Validation",
+        "Topology",
+        "Metadata"
+      ]
+    },
+    {
+      "slug": "geoprivacy",
+      "term": "Geoprivacy",
+      "vi": "Quyền riêng tư địa lý",
+      "topic": "governance",
+      "definition": "Bảo vệ thông tin vị trí có thể tiết lộ danh tính, hành vi hoặc thông tin nhạy cảm.",
+      "explain": "Vị trí rất chính xác có thể tái nhận dạng một cá nhân dù tên đã bị xóa.",
+      "example": "Công bố dữ liệu sức khỏe theo lưới hoặc vùng thay vì tọa độ hộ gia đình.",
+      "warning": "Ẩn tên không đồng nghĩa với ẩn danh không gian.",
+      "related": [
+        "Privacy",
+        "Anonymization",
+        "Location data"
+      ]
+    }
+  ]
+}
